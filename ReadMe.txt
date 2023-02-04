@@ -73,5 +73,3 @@ _______________________________________________________________________________
 
 作者     : ナナシア
 Twitter  : https://twitter.com/nanasia1374
-YouTube  : https://www.youtube.com/@nanasia1374
-Twitch   : https://www.twitch.tv/nanasia1374
