@@ -75,7 +75,7 @@ function main() {
 	if(lastmutchdate != lastmutchdate2 ) {
 		
 		//totalptを増減
-		totalpt += + changerankpt;
+		totalpt += changerankpt;
 		
 		//pt合計の符号が何か判定
 		totalpt_sign = Math.sign(totalpt);
