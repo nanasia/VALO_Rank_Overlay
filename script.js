@@ -82,7 +82,7 @@ function main() {
 		
 		//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
 		if(changerankpt < 0 && Math.abs(changerankpt) > rankpt2){
-			changerankpt = rankpt2 * -1
+			changerankpt = rankpt2 * -1;
 		}
 		
 		//totalptを増減
