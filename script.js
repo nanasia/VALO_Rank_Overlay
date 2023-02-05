@@ -8,9 +8,10 @@ let rankcurrent;			//現在のランク
 let rankcurrent_nospace;	//現在のランクの空白なし
 let rankcurrent_nonum;		//現在のランクの数字なし(レディアントは最後のtなし)
 
-let rankpt;		//現在のランクpt
-let rankpt_str;	//現在のランク + "pt"
-let resize;		//メーターの変更後の長さ
+let rankpt;			//現在のランクpt
+let rankpt_meter;	//現在のランクpt(メーター用)
+let rankpt_str;		//現在のランク + "pt"
+let resize;			//メーターの変更後の長さ
 
 let lastmutchdate;		//前回のコンペマッチの日付
 let lastmutchdate2;		//前回のコンペマッチの日付記録用
@@ -55,12 +56,15 @@ function main() {
 	//メーター増減の処理
 	let rpmeterW = document.getElementById('meter1');
 	
+	//rankptをメーター用の変数にコピー
+	rankpt_meter = rankpt;
+	
 	//芋とかRP100以上だとメーターを100にする
-	if(rankpt > 100 ) {
-		rankpt = 100;
+	if(rankpt_meter > 100 ) {
+		rankpt_meter = 100;
 	}
 	
-	resize = rankpt * 6.25;
+	resize = rankpt_meter * 6.25;
 	rpmeterW.width = resize;
 	
 	//現在のRP表示の処理
@@ -73,6 +77,11 @@ function main() {
 	
 	//前のマッチの記録が更新されれば処理実行
 	if(lastmutchdate != lastmutchdate2 ) {
+		
+		//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
+		if(changerankpt < 0 && Math.abs(changerankpt) > rankpt){
+			changerankpt = rankpt * -1
+		}
 		
 		//totalptを増減
 		totalpt += changerankpt;
