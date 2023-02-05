@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
+/* 全体のフォントとか */
 body {
     font-family:  'Noto Sans JP';
 	color    :#FFFFFF;
@@ -7,48 +8,56 @@ body {
 	font-weight:800;
 }
 
+/* 親 */
 .main {
-	width:1000px;
-	height:aute;
 	position: relative;
+	width:1400px;
+	height:aute;
 }
-.rank {
-	position: absolute;
-	left: 0px;
-	top: 20px;
-}
+/* 文字（pタグ）は子関係に */
 .main p{
 	position : absolute;
 }
 
-.text1_rank {
-	left:260px;
+/* ランクマークの設定 */
+#rankimg {
+	position: absolute;
+	left: 0px;
+	top: 20px;
+}
+
+/* 上部分の文字の設定 */
+.text1 {
 	font-size:  70px;
 	top:10px;
 	text-stroke: 2px #000;
 	-webkit-text-stroke: 4px #000;
-
 }
 
-.text1_pt {
-	right:180px;
-	font-size:  70px;
-	top:10px;
-	text-stroke: 2px #000;
-	-webkit-text-stroke: 4px #000;
+/* 上部分の左の文字の設定 */
+#text1_rank {
+	left:250px;
 }
 
-.text2_totalpt {
+/* 上部分の右の文字の設定 */
+#text1_pt {
+	left:680px;
+}
+
+/* 下部分の文字の設定 */
+#text2_total {
 	font-size:  55px;
-	left:260px;
+	left:250px;
 	top:170px;
 	text-stroke: 2px #000;
 	-webkit-text-stroke: 3px #000;
-
 }
-.rpmeter{
+
+/* 下部分の文字の設定 */
+#meter1{
 	position: absolute;
 	left:243px;
 	top:189px;
+	/* 後ろに表示する */
 	z-index: -1;
 	}
