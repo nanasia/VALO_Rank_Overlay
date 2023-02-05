@@ -26,7 +26,7 @@ let totalpt = 0;		//今回のpt増減
 let totalpt_sign;		//totalptの+-判定用
 let totalptsign = 0;	//totalptの符号付き
 
-let text3;	//今回の勝敗数とポイント増減表示用
+let text2;	//今回の勝敗数とポイント増減表示用
 
 function InfoGet(url) {
   let request = new XMLHttpRequest();
@@ -123,16 +123,16 @@ function main() {
 	}
 	
 	//今回の勝敗数とポイント増減を変数に入れる
-	text3 = totalwin + " Win / " + totallose + " Lose / Total " + totalptsign + "pt";
+	text2 = totalwin + " Win / " + totallose + " Lose / Total " + totalptsign + "pt";
 	
 	//表示の変更
 	document.getElementById("rankimg").src = "img/rankmark/" + rankcurrent_nospace + ".png";
 	document.getElementById("meter1").src = "img/" + rankcurrent_nonum + ".png";
 	document.getElementById("underline").src = "img/UnderLine.png";
 	
-	document.getElementById("a1").innerHTML = rankcurrent;
-	document.getElementById('a2').innerHTML = rankpt_str;
-	document.getElementById('a3').innerHTML = text3;
+	document.getElementById("text1_rank").innerHTML = rankcurrent;
+	document.getElementById('text1_pt').innerHTML = rankpt_str;
+	document.getElementById('text2_total').innerHTML = text2;
 }
 
 //20秒に1回mainを起動（API配布先に迷惑がかかるので20秒未満に変更しないでください）
