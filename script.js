@@ -9,6 +9,8 @@ let rankcurrent_nospace;	//現在のランクの空白なし
 let rankcurrent_nonum;		//現在のランクの数字なし(レディアントは最後のtなし)
 
 let rankpt;			//現在のランクpt
+let rankpt2 = 0;;			//現在のランクpt記録用
+
 let rankpt_meter;	//現在のランクpt(メーター用)
 let rankpt_str;		//現在のランク + "pt"
 let resize;			//メーターの変更後の長さ
@@ -79,8 +81,8 @@ function main() {
 	if(lastmutchdate != lastmutchdate2 ) {
 		
 		//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
-		if(changerankpt < 0 && Math.abs(changerankpt) > rankpt){
-			changerankpt = rankpt * -1
+		if(changerankpt < 0 && Math.abs(changerankpt) > rankpt2){
+			changerankpt = rankpt2 * -1
 		}
 		
 		//totalptを増減
@@ -128,9 +130,11 @@ function main() {
 		
 		//マッチのdateを記録
 		lastmutchdate2 = lastmutchdate;
-	
+
+		//前のrankptを記録する
+		rankpt2 = rankpt;
 	}
-	
+
 	//今回の勝敗数とポイント増減を変数に入れる
 	text2 = totalwin + " Win / " + totallose + " Lose / Total " + totalptsign + "pt";
 	
@@ -151,4 +155,5 @@ setInterval(main, 20000);
 //最初用
 window.onload = function() {
 	main();
+	rankpt2 = rankpt;
 }
