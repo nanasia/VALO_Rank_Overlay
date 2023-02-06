@@ -53,7 +53,7 @@ body {
 	-webkit-text-stroke: 3px #000;
 }
 
-/* 下部分の文字の設定 */
+/* メーターの設定 */
 #meter1{
 	position: absolute;
 	left:243px;
