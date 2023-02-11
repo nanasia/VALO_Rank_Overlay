@@ -15,7 +15,7 @@ ________________________________________________________________________________
 
 	2.a.script.jsを編集
 		script.jsをテキスト形式で開きます。
-		RegiaoUsername,Username,Taglineの内容を自分に合わせて変更します。
+		Regiao,Username,Taglineの内容を自分に合わせて変更します。
 		例：変更前：let Username = "君にリコン届け";	//名前
 		　：変更後：let Username = "君に離婚届";	//名前
 
