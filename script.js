@@ -9,7 +9,7 @@ let rankcurrent_nospace;	//現在のランクの空白なし
 let rankcurrent_nonum;		//現在のランクの数字なし(レディアントは最後のtなし)
 
 let rankpt;			//現在のランクpt
-let rankpt2 = 0;;			//現在のランクpt記録用
+let rankpt2 = 0;			//現在のランクpt記録用
 
 let rankpt_meter;	//現在のランクpt(メーター用)
 let rankpt_str;		//現在のランク + "pt"
@@ -20,7 +20,7 @@ let lastmutchdate2;		//前回のコンペマッチの日付記録用
 let changerankpt;		//前回のコンペマッチのpt変動
 
 let drowflag = false;	//引き分けフラグ
-let vdflag = false;		//勝敗フラグ
+let wlflag = false;		//勝敗フラグ
 let myteam;				//自分のチーム
 let totalwin = 0;		//今回の勝利数
 let totallose = 0;		//今回の敗北数
@@ -66,7 +66,10 @@ function main() {
 		rankpt_meter = 100;
 	}
 	
+	//メーターの長さ調整
 	resize = rankpt_meter * 6.25;
+	
+	//メーター反映
 	rpmeterW.width = resize;
 	
 	//現在のRP表示の処理
@@ -112,7 +115,7 @@ function main() {
 		myteam = playerinfo.team;
 		
 		//勝敗を判断
-		vdflag = jsonDataWL.data[0].teams[myteam.toLowerCase()].has_won;
+		wlflag = jsonDataWL.data[0].teams[myteam.toLowerCase()].has_won;
 		
 		//引き分け判定
 		if(jsonDataWL.data[0].teams.red.has_won == false && jsonDataWL.data[0].teams.blue.has_won == false){
@@ -122,9 +125,9 @@ function main() {
 		}
 		
 		//勝敗数を追加
-		if(vdflag === true){
+		if(wlflag === true){
 			totalwin += 1;
-		} else if(vdflag === false && drowflag === false){
+		} else if(wlflag === false && drowflag === false){
 			totallose += 1;
 		}
 		
@@ -142,7 +145,7 @@ function main() {
 	document.getElementById("rankimg").src = "img/rankmark/" + rankcurrent_nospace + ".png";
 	document.getElementById("meter1").src = "img/" + rankcurrent_nonum + ".png";
 	document.getElementById("underline").src = "img/UnderLine.png";
-	
+	document.getElementById("background").src = "img/Background.png";
 	document.getElementById("text1_rank").innerHTML = rankcurrent;
 	document.getElementById('text1_pt').innerHTML = rankpt_str;
 	document.getElementById('text2_total').innerHTML = text2;

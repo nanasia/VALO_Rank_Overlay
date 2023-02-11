@@ -1,0 +1,2 @@
+1:『Background.png』を削除
+2:『Background_なし.png』を『Background.png』に名前を変更

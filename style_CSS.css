@@ -14,8 +14,9 @@ body {
 	width:1400px;
 	height:aute;
 }
+
 /* 文字（pタグ）は子関係に */
-.main p{
+.main p {
 	position : absolute;
 }
 
@@ -23,7 +24,32 @@ body {
 #rankimg {
 	position: absolute;
 	left: 0px;
-	top: 20px;
+	top: 60px;
+	/* 前面に表示する */
+	z-index: 2;
+}
+
+/* 線みたいなのの設定 */
+#underline {
+	position: absolute;
+	/* 後ろに表示する */
+	z-index: -1;
+}
+
+/* メーターの設定 */
+#meter1 {
+	position: absolute;
+	left:243px;
+	top:189px;
+	/* 後ろに表示する */
+	z-index: -2;
+}
+
+/* 背景の設定 */
+#background {
+	position: absolute;
+	/* 後ろに表示する */
+	z-index: -5;
 }
 
 /* 上部分の文字の設定 */
@@ -52,12 +78,3 @@ body {
 	text-stroke: 2px #000;
 	-webkit-text-stroke: 3px #000;
 }
-
-/* メーターの設定 */
-#meter1{
-	position: absolute;
-	left:243px;
-	top:189px;
-	/* 後ろに表示する */
-	z-index: -1;
-	}
