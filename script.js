@@ -144,7 +144,7 @@ function main() {
 	//表示の変更
 	document.getElementById("rankimg").src = "img/rankmark/" + rankcurrent_nospace + ".png";
 	document.getElementById("meter1").src = "img/" + rankcurrent_nonum + ".png";
-	document.getElementById("underline").src = "img/UnderLine.png";
+	document.getElementById("underline").src = "img/Underline.png";
 	document.getElementById("background").src = "img/Background.png";
 	document.getElementById("text1_rank").innerHTML = rankcurrent;
 	document.getElementById('text1_pt').innerHTML = rankpt_str;
