@@ -51,7 +51,7 @@ function main() {
 	changerankpt = jsonData.data[0].mmr_change_to_last_game;
 	lastmutchdate = jsonData.data[0].date;
 	
-	//画像の処理
+	//画像の処理のための変数を用意
 	rankcurrent_nospace = rankcurrent.replace(/\s+/g, "");
 	rankcurrent_nonum = rankcurrent_nospace.slice( 0, -1);
 	
