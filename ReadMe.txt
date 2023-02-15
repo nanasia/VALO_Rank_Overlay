@@ -1,4 +1,4 @@
-VALO_Rank_Overlay(Ver 1.1.0)  readme.txt
+VALO_Rank_Overlay(Ver 1.1.1)  readme.txt
 
 ※使用前に必ずお読みください。
 
