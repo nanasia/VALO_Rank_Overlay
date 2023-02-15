@@ -56,7 +56,6 @@ body {
 .text1 {
 	font-size:  70px;
 	top:10px;
-	text-stroke: 2px #000;
 	-webkit-text-stroke: 4px #000;
 }
 
@@ -75,6 +74,5 @@ body {
 	font-size:  55px;
 	left:250px;
 	top:170px;
-	text-stroke: 2px #000;
 	-webkit-text-stroke: 3px #000;
 }
