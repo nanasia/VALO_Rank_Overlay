@@ -95,7 +95,7 @@ function main() {
 			Tagline + "?filter=competitive&size=1"
 		);
 		let jsonDataWL = JSON.parse(GetMatchHistory);
-		let lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
+		lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
 		
 		if (lastmutchdateGMH != lastmutchdateGMH2) {
 			//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
