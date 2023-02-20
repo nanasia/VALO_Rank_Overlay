@@ -97,6 +97,7 @@ function main() {
 		let jsonDataWL = JSON.parse(GetMatchHistory);
 		lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
 		
+		//Get Match Historyも更新されたら処理を開始する
 		if (lastmutchdateGMH != lastmutchdateGMH2) {
 			//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
 			if(changerankpt < 0 && Math.abs(changerankpt) > rankpt2){
@@ -183,4 +184,17 @@ setInterval(main, 20000);
 window.onload = function() {
 	main();
 	rankpt2 = rankpt;
+	
+	//前の試合の日付を記録する
+	//Get Match History
+	let GetMatchHistory = InfoGet(
+		"https://api.henrikdev.xyz/valorant/v3/matches/" +
+		Regiao + "/" + Username + "/" +
+		Tagline + "?filter=competitive&size=1"
+	);
+	let jsonDataWL = JSON.parse(GetMatchHistory);
+	lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
+	
+	lastmutchdateGMH2 = lastmutchdateGMH;
+	
 }
