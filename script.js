@@ -100,7 +100,7 @@ function main() {
 		//Get Match Historyも更新されたら処理を開始する
 		if (lastmutchdateGMH != lastmutchdateGMH2) {
 			//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
-			if(changerankpt < 0 && Math.abs(changerankpt) > rankpt2){
+			if(changerankpt < 0 && Math.abs(changerankpt) > rankpt2 && rankpt2 != 0){
 				changerankpt = rankpt2 * -1;
 			}
 			
