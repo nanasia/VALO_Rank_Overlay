@@ -4,24 +4,24 @@ let Tagline = "774A";				//タグライン
 //上3行を自分のアカウントに合わせて変更する
 //アカウント情報を変更したらこちらも変更してください
 
-let priflag = true;				//表示の変更を反映するかのフラグ
+let priflag = true;			//表示の変更を反映するかのフラグ
 
 let rankcurrent;			//現在のランク
 let rankcurrent_nospace;	//現在のランクの空白なし
 let rankcurrent_nonum;		//現在のランクの数字なし(レディアントは最後のtなし)
 
-let rankpt;			//現在のランクpt
+let rankpt;					//現在のランクpt
 let rankpt2 = 0;			//現在のランクpt記録用
 
-let rankpt_meter;	//現在のランクpt(メーター用)
-let rankpt_str;		//現在のランク + "pt"
-let resize;			//メーターの変更後の長さ
-
-let lastmutchdate;		//前回のコンペマッチの日付
-let lastmutchdate2;		//前回のコンペマッチの日付記録用
-let changerankpt;		//前回のコンペマッチのpt変動
+let lastmutchdate;			//前回のコンペマッチの日付
+let lastmutchdate2;			//前回のコンペマッチの日付記録用
+let lastchangerankpt;		//前回のコンペマッチのpt変動
 let lastmutchdateGMH;		//前回のコンペマッチの日付(GMH)
 let lastmutchdateGMH2;		//前回のコンペマッチの日付記録用(GMH)
+
+let rankpt_meter;		//現在のランクpt(メーター用)
+let rankpt_str;			//現在のランク + "pt"
+let resize;				//メーターの変更後の長さ
 
 let drowflag = false;	//引き分けフラグ
 let wlflag = false;		//勝敗フラグ
@@ -29,6 +29,7 @@ let myteam;				//自分のチーム
 let totalwin = 0;		//今回の勝利数
 let totallose = 0;		//今回の敗北数
 
+let changerankpt;		//Totalに加算するpt
 let totalpt = 0;		//今回のpt増減
 let totalpt_sign;		//totalptの+-判定用
 let totalptsign = 0;	//totalptの符号付き
@@ -52,7 +53,7 @@ function main() {
 	let jsonData = JSON.parse(GetMMRHistory);
 	rankcurrent = jsonData.data[0].currenttierpatched;
 	rankpt = jsonData.data[0].ranking_in_tier;
-	changerankpt = jsonData.data[0].mmr_change_to_last_game;
+	lastchangerankpt = jsonData.data[0].mmr_change_to_last_game;
 	lastmutchdate = jsonData.data[0].date;
 	
 	//画像の処理のための変数を用意
@@ -99,9 +100,14 @@ function main() {
 		
 		//Get Match Historyも更新されたら処理を開始する
 		if (lastmutchdateGMH != lastmutchdateGMH2) {
-			//負けて床ペロしたときにマイナスが減った分のみtotalに加算される
-			if(changerankpt < 0 && Math.abs(changerankpt) > rankpt2 && rankpt2 != 0){
+			//床ペロしたときに減った分のみtotalにマイナスが加算される
+			if(lastchangerankpt < 0 && Math.abs(lastchangerankpt) > rankpt2 && rankpt2 != 0){
 				changerankpt = rankpt2 * -1;
+			}
+			
+			//アイアン1で床ペロの時、Totalに加算する値を0にする
+			if(rankcurrent == "Iron 1" && rankpt2 == 0){
+				changerankpt = 0;
 			}
 			
 			//totalptを増減
