@@ -72,7 +72,7 @@ function main() {
 	}
 	
 	//メーターの長さ調整
-	resize = rankpt_meter * 7.04;
+	resize = rankpt_meter * 6.25;
 	
 	//現在のRP表示の処理
 	rankpt_str = rankpt + "pt";
