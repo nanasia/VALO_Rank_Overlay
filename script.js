@@ -72,7 +72,7 @@ function main() {
 	}
 	
 	//メーターの長さ調整
-	resize = rankpt_meter * 6.25;
+	resize = rankpt_meter * 7.04;
 	
 	//現在のRP表示の処理
 	rankpt_str = rankpt + "pt";
@@ -100,6 +100,9 @@ function main() {
 		
 		//Get Match Historyも更新されたら処理を開始する
 		if (lastmutchdateGMH != lastmutchdateGMH2) {
+			//totalに加算する用の変数に変動したランクptを入れる
+			changerankpt = lastchangerankpt;
+			
 			//床ペロしたときに減った分のみtotalにマイナスが加算される
 			if(lastchangerankpt < 0 && Math.abs(lastchangerankpt) > rankpt2 && rankpt2 != 0){
 				changerankpt = rankpt2 * -1;
