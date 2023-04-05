@@ -9,9 +9,11 @@ let priflag = true;			//表示の変更を反映するかのフラグ
 let rankcurrent;			//現在のランク
 let rankcurrent_nospace;	//現在のランクの空白なし
 let rankcurrent_nonum;		//現在のランクの数字なし(レディアントは最後のtなし)
+let currenttier;			//現在のランクの下からの順番
+let lastcurrenttier;		//前回の現在のランクの下からの順番
 
 let rankpt;					//現在のランクpt
-let rankpt2 = 0;			//現在のランクpt記録用
+let lastrankpt = 0;			//現在のランクpt記録用
 
 let lastmutchdate;			//前回のコンペマッチの日付
 let lastmutchdate2;			//前回のコンペマッチの日付記録用
@@ -51,6 +53,7 @@ function main() {
 	);
 	
 	let jsonData = JSON.parse(GetMMRHistory);
+	currenttier = jsonData.data[0].currenttier;
 	rankcurrent = jsonData.data[0].currenttierpatched;
 	rankpt = jsonData.data[0].ranking_in_tier;
 	lastchangerankpt = jsonData.data[0].mmr_change_to_last_game;
@@ -104,13 +107,18 @@ function main() {
 			changerankpt = lastchangerankpt;
 			
 			//床ペロしたときに減った分のみtotalにマイナスが加算される
-			if(lastchangerankpt < 0 && Math.abs(lastchangerankpt) > rankpt2 && rankpt2 != 0){
-				changerankpt = rankpt2 * -1;
+			if(lastchangerankpt < 0 && Math.abs(lastchangerankpt) > lastrankpt && lastrankpt != 0){
+				changerankpt = lastrankpt * -1;
 			}
 			
 			//アイアン1で床ペロの時、Totalに加算する値を0にする
-			if(rankcurrent == "Iron 1" && rankpt2 == 0){
+			if(rankcurrent == "Iron 1" && lastrankpt == 0){
 				changerankpt = 0;
+			}
+			
+			//イモ2未満かつランク昇格時かつ昇格後のポイントが10未満な場合に10になるため、Totalに追加するptの調整
+			if(currenttier < 25 && lastcurrenttier < currenttier && lastrankpt + lastchangerankpt < 110){
+				changerankpt = changerankpt + 110 - lastrankpt - lastchangerankpt;
 			}
 			
 			//totalptを増減
@@ -152,7 +160,10 @@ function main() {
 			lastmutchdateGMH2 = lastmutchdateGMH;
 			
 			//前のrankptを記録する
-			rankpt2 = rankpt;
+			lastrankpt = rankpt;
+			
+			//前のrankcurrentを記録する
+			lastcurrenttier = currenttier;
 			
 			//表示更新のタイミング合わせ
 			priflag = true;
@@ -192,7 +203,7 @@ setInterval(main, 20000);
 //最初用
 window.onload = function() {
 	main();
-	rankpt2 = rankpt;
+	lastrankpt = rankpt;
 	
 	//前の試合の日付を記録する
 	//Get Match History
@@ -205,5 +216,5 @@ window.onload = function() {
 	lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
 	
 	lastmutchdateGMH2 = lastmutchdateGMH;
-	
+	lastcurrenttier = currenttier;
 }
