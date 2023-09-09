@@ -1,5 +1,5 @@
 let Regiao = "ap";					//eu na ap(jp) kr
-let Username = "君にリコン届け";	//名前
+let Username = "nanasia Twitch";	//名前
 let Tagline = "774A";				//タグライン
 //上3行を自分のアカウントに合わせて変更する
 //アカウント情報を変更したらこちらも変更してください
@@ -22,7 +22,6 @@ let lastmutchdateGMH;		//前回のコンペマッチの日付(GMH)
 let lastmutchdateGMH2;		//前回のコンペマッチの日付記録用(GMH)
 
 let rankpt_meter;		//現在のランクpt(メーター用)
-let rankpt_str;			//現在のランク + "pt"
 let resize;				//メーターの変更後の長さ
 
 let drowflag = false;	//引き分けフラグ
@@ -76,9 +75,6 @@ function main() {
 	
 	//メーターの長さ調整
 	resize = rankpt_meter * 6.25;
-	
-	//現在のRP表示の処理
-	rankpt_str = rankpt + "pt";
 	
 	//前のマッチの記録がないならdateを記録
 	if(lastmutchdate2 === void 0) {
@@ -190,7 +186,7 @@ function main() {
 		//現ランク
 		document.getElementById("text1_rank").innerHTML = rankcurrent;
 		//現ランクのポイント
-		document.getElementById('text1_pt').innerHTML = rankpt_str;
+		document.getElementById('text1_pt').innerHTML = rankpt + "pt";
 		//下側のテキスト
 		document.getElementById('text2_total').innerHTML = text2;
 	}
