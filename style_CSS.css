@@ -2,7 +2,7 @@
 
 /* 全体のフォントとか */
 body {
-    font-family:  'Noto Sans JP';
+    font-family:  'Noto Sans CJK JP';
 	color    :#FFFFFF;
 	letter-spacing : -4px;
 	font-weight:800;
@@ -23,8 +23,10 @@ body {
 /* ランクマークの設定 */
 #rankimg {
 	position: absolute;
-	left: 0px;
-	top: 60px;
+	left: 8px;
+	top: 90px;
+	width:200px;
+
 	/* 前面に表示する */
 	z-index: 2;
 }
@@ -39,8 +41,9 @@ body {
 /* メーターの設定 */
 #meter1 {
 	position: absolute;
-	left:243px;
-	top:189px;
+	left:213px;
+	top:160px;
+	height:100px;
 	/* 後ろに表示する */
 	z-index: -2;
 }
@@ -73,6 +76,6 @@ body {
 #text2_total {
 	font-size:  55px;
 	left:250px;
-	top:170px;
+	top:190px;
 	-webkit-text-stroke: 3px #000;
 }
