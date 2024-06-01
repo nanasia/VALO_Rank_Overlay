@@ -13,20 +13,31 @@ ________________________________________________________________________________
 ________________________________________________________________________________
 2.使用方法
 
-	1	script.jsを編集
+	1	API_KEYの取得
+		https://discord.gg/X3GaVkX2YN←のDiscordサーバーに入る
+		#get-a-keyチャンネルでGenerateを押す
+		VALORANTを選択後、VALORANT(BAsic Key)を選択
+		送られてきたKeyを記録する
+
+		リンクにあるDiscordサーバーはAPI提供元の人達のサーバーです。
+		怖い方はAPI提供元のサイトから→https://github.com/Henrik-3/unofficial-valorant-api
+		Keyが送られるのは数秒～数日の誤差があります
+
+	2	script.jsを編集
 		script.jsをテキスト形式で開きます。
-		Regiao,Username,Taglineの内容を自分に合わせて変更します。
+		Regiao,Username,Tagline,Apikeyの内容を自分に合わせて変更します。
+
 		例：変更前：let Username = "君にリコン届け";	//名前
 		　：変更後：let Username = "君に離婚届";	//名前
-	
 		index.htmlを使用して、自分のランクが表示されれば1はOKです。
 		index.htmlをブラウザで表示させてもいいですし、OBSなどの配信用ソフトウェア
 		に適用して確認しても問題ありません。
 	
-	2	index.htmlをOBSなどの配信用ソフトウェアなどに適用(OBSを例に)。
-	2.1	OBSでブラウザを追加。
-	2.2	ローカルファイルにチェックを入れる。
-	2.3	参照から、index.htmlを指定する。
+	3	index.htmlをOBSなどの配信用ソフトウェアなどに適用(OBSを例に)。
+	3.1	OBSでブラウザを追加。
+	3.2	ローカルファイルにチェックを入れる。
+	3.3	参照から、index.htmlを指定する。
+
 		幅は1400、高さは400以上に設定してください。
 		表示が変になる場合は大きめに設定してください。
 		旧バージョンでは、index.htmlをOBSのソース欄にドラッグ＆ドロップすれば適用できます。

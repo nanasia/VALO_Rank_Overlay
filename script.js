@@ -1,7 +1,8 @@
 let Regiao = "ap";					//eu na ap(jp) kr
-let Username = "nanasia Twitch";	//名前
+let Username = "nanasia";	//名前
 let Tagline = "774A";				//タグライン
-//上3行を自分のアカウントに合わせて変更する
+let Apikey = "HDEV-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"	//API_KEY
+//上4行を自分のアカウントに合わせて変更する
 //アカウント情報を変更したらこちらも変更してください
 
 let priflag = true;			//表示の変更を反映するかのフラグ
@@ -48,7 +49,7 @@ function main() {
 	//Get MMR History
 	let GetMMRHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v1/mmr-history/" +
-		Regiao + "/" + Username + "/" + Tagline
+		Regiao + "/" + Username + "/" + Tagline + "?api_key=" + Apikey
 	);
 	
 	let jsonData = JSON.parse(GetMMRHistory);
@@ -92,7 +93,7 @@ function main() {
 		let GetMatchHistory = InfoGet(
 			"https://api.henrikdev.xyz/valorant/v3/matches/" +
 			Regiao + "/" + Username + "/" +
-			Tagline + "?filter=competitive&size=1"
+			Tagline + "?filter=competitive&size=1" + "&api_key=" + Apikey
 		);
 		let jsonDataWL = JSON.parse(GetMatchHistory);
 		lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
@@ -206,7 +207,7 @@ window.onload = function() {
 	let GetMatchHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v3/matches/" +
 		Regiao + "/" + Username + "/" +
-		Tagline + "?filter=competitive&size=1"
+		Tagline + "?filter=competitive&size=1" + "&api_key=" + Apikey
 	);
 	let jsonDataWL = JSON.parse(GetMatchHistory);
 	lastmutchdateGMH = jsonDataWL.data[0].metadata.game_start_patched;
