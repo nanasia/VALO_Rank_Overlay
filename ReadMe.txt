@@ -17,7 +17,7 @@ ________________________________________________________________________________
 		https://discord.gg/X3GaVkX2YN
 		↑のDiscordサーバーに入る
 		#get-a-keyチャンネルでGenerateを押す
-		VALORANTを選択後、VALORANT(BAsic Key)を選択
+		VALORANTを選択後、VALORANT(Basic Key)を選択
 		送られてきたKeyを記録する
 
 		リンクにあるDiscordサーバーはAPI提供元の人達のサーバーです。
