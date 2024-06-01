@@ -14,7 +14,8 @@ ________________________________________________________________________________
 2.使用方法
 
 	1	API_KEYの取得
-		https://discord.gg/X3GaVkX2YN←のDiscordサーバーに入る
+		https://discord.gg/X3GaVkX2YN
+		↑のDiscordサーバーに入る
 		#get-a-keyチャンネルでGenerateを押す
 		VALORANTを選択後、VALORANT(BAsic Key)を選択
 		送られてきたKeyを記録する
