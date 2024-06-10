@@ -15,14 +15,18 @@ ________________________________________________________________________________
 
 	1	API_KEYの取得
 		https://discord.gg/X3GaVkX2YN
-		↑のDiscordサーバーに入る
-		#get-a-keyチャンネルでGenerateを押す
-		VALORANTを選択後、VALORANT(Basic Key)を選択
-		送られてきたKeyを記録する
+		↑のDiscordサーバーに入る。
+		#verifyでverifizierenを押下、人間認証を行う。
+		#get-a-keyチャンネルでGenerateを押下。
+		VALORANTを選択後、VALORANT(Basic Key)を選択。
+		↓を入力。
+		PRODUCT NAME		：VALORANT OBS Overlay
+		PROSUCT DESCRIPTION	：Overlay to show the rank on stream
+		送られてきたKeyを記録する。
 
 		リンクにあるDiscordサーバーはAPI提供元の人達のサーバーです。
 		怖い方はAPI提供元のサイトから→https://github.com/Henrik-3/unofficial-valorant-api
-		Keyが送られるのは数秒～数日の誤差があります
+		Keyが送られるのは数秒～数日の誤差があります。
 
 	2	script.jsを編集
 		script.jsをテキスト形式で開きます。
@@ -35,9 +39,9 @@ ________________________________________________________________________________
 		に適用して確認しても問題ありません。
 	
 	3	index.htmlをOBSなどの配信用ソフトウェアなどに適用(OBSを例に)。
-	3.1	OBSでブラウザを追加。
-	3.2	ローカルファイルにチェックを入れる。
-	3.3	参照から、index.htmlを指定する。
+		OBSでブラウザを追加。
+		ローカルファイルにチェックを入れる。
+		参照から、index.htmlを指定する。
 
 		幅は1400、高さは400以上に設定してください。
 		表示が変になる場合は大きめに設定してください。
