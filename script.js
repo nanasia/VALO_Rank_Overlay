@@ -6,6 +6,7 @@ let Apikey = "HDEV-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"	//API_KEY
 //アカウント情報を変更したらこちらも変更してください
 
 let priflag = true;			//表示の変更を反映するかのフラグ
+let Username2;				//名前に空白がある場合の名前
 
 let rankcurrent;			//現在のランク
 let rankcurrent_nospace;	//現在のランクの空白なし
@@ -46,10 +47,12 @@ function InfoGet(url) {
 }
 
 function main() {
+	Username2 = Username.replace( " ", "%20" );
+
 	//Get MMR History
 	let GetMMRHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v1/mmr-history/" +
-		Regiao + "/" + Username + "/" + Tagline + "?api_key=" + Apikey
+		Regiao + "/" + Username2 + "/" + Tagline + "?api_key=" + Apikey
 	);
 	
 	let jsonData = JSON.parse(GetMMRHistory);
@@ -92,7 +95,7 @@ function main() {
 		//Get Match History
 		let GetMatchHistory = InfoGet(
 			"https://api.henrikdev.xyz/valorant/v3/matches/" +
-			Regiao + "/" + Username + "/" +
+			Regiao + "/" + Username2 + "/" +
 			Tagline + "?filter=competitive&size=1" + "&api_key=" + Apikey
 		);
 		let jsonDataWL = JSON.parse(GetMatchHistory);
@@ -168,7 +171,7 @@ function main() {
 	}
 	
 	//今回の勝敗数とポイント増減を変数に入れる
-	text2 = totalwin + " Win / " + totallose + " Lose / Total " + totalptsign + "pt";
+	text2 = totalwin + " Win " + totallose + " Lose / Total " + totalptsign + "pt";
 	
 	//表示の変更
 	//表示の変更をしていいなら変更
