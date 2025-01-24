@@ -1,5 +1,5 @@
 let Regiao = "ap";					//eu na ap(jp) kr
-let Username = "nanasia";	//名前
+let Username = "7 tear Twitch";	//名前
 let Tagline = "774A";				//タグライン
 let Apikey = "HDEV-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"	//API_KEY
 //上4行を自分のアカウントに合わせて変更する
