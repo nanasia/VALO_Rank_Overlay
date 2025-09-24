@@ -41,9 +41,8 @@ body {
 /* メーターの設定 */
 #meter1 {
 	position: absolute;
-	left:213px;
-	top:160px;
-	height:100px;
+	left:243px;
+	top:189px;
 	/* 後ろに表示する */
 	z-index: -2;
 }
