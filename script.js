@@ -135,7 +135,7 @@ function main() {
 			}
 			
 			//自分のチームがどっちか
-			let playerinfo = jsonDataWL.data[0].players.all_players.find(a => a.name === Username2);
+			let playerinfo = jsonDataWL.data[0].players.all_players.find(a => a.name === Username);
 			myteam = playerinfo.team;
 			
 			//勝敗を判断
@@ -218,4 +218,5 @@ window.onload = function() {
 	lastmutchdateGMH2 = lastmutchdateGMH;
 	lastcurrenttier = currenttier;
 }
+
 
