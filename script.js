@@ -1,5 +1,5 @@
 let Regiao = "ap";					//eu na ap(jp) kr
-let Username = "7 tear Twitch";	//名前
+let Username = "nanasia";	//名前
 let Tagline = "774A";				//タグライン
 let Apikey = "HDEV-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"	//API_KEY
 //上4行を自分のアカウントに合わせて変更する
@@ -78,7 +78,7 @@ function main() {
 	}
 	
 	//メーターの長さ調整
-	resize = rankpt_meter * 6.25;
+	resize = rankpt_meter * 6.40;
 	
 	//前のマッチの記録がないならdateを記録
 	if(lastmutchdate2 === void 0) {
@@ -209,7 +209,7 @@ window.onload = function() {
 	//Get Match History
 	let GetMatchHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v3/matches/" +
-		Regiao + "/" + Username + "/" +
+		Regiao + "/" + Username2 + "/" +
 		Tagline + "?filter=competitive&size=1" + "&api_key=" + Apikey
 	);
 	let jsonDataWL = JSON.parse(GetMatchHistory);
@@ -218,5 +218,3 @@ window.onload = function() {
 	lastmutchdateGMH2 = lastmutchdateGMH;
 	lastcurrenttier = currenttier;
 }
-
-

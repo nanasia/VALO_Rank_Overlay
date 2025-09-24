@@ -2,10 +2,10 @@
 
 /* 全体のフォントとか */
 body {
-    font-family:  'Noto Sans CJK JP';
+    font-family:  'Noto Sans JP';
 	color    :#FFFFFF;
-	letter-spacing : -4px;
-	font-weight:800;
+	letter-spacing : -3px;
+	font-weight:700;
 }
 
 /* 親 */
@@ -23,9 +23,10 @@ body {
 /* ランクマークの設定 */
 #rankimg {
 	position: absolute;
-	left: 8px;
-	top: 90px;
+	left: 40px;
+	top: 87px;
 	width:200px;
+	height:auto;
 
 	/* 前面に表示する */
 	z-index: 2;
@@ -41,9 +42,10 @@ body {
 /* メーターの設定 */
 #meter1 {
 	position: absolute;
-	left:213px;
-	top:160px;
-	height:100px;
+	left:243px;
+	top:191px;
+	height:20px;
+
 	/* 後ろに表示する */
 	z-index: -2;
 }
@@ -58,24 +60,27 @@ body {
 /* 上部分の文字の設定 */
 .text1 {
 	font-size:  70px;
-	top:10px;
-	-webkit-text-stroke: 4px #000;
+	top:18px;
+/*	-webkit-text-stroke: 4px #000;*/
 }
 
 /* 上部分の左の文字の設定 */
 #text1_rank {
-	left:250px;
+	left:260px;
 }
 
 /* 上部分の右の文字の設定 */
 #text1_pt {
-	left:680px;
+	left:670px;
+	letter-spacing : -3px;
 }
 
 /* 下部分の文字の設定 */
 #text2_total {
-	font-size:  55px;
+	font-size:  58px;
+	color    :#000000;
 	left:250px;
-	top:190px;
-	-webkit-text-stroke: 3px #000;
+	top:175px;
+	font-weight:800;
+/*	-webkit-text-stroke: 3px #000;*/
 }
