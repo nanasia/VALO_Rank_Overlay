@@ -2,7 +2,7 @@
 
 /* 全体のフォントとか */
 body {
-	font-family: "Noto Sans JP", sans-serif;
+	font-family: "Noto Sans", sans-serif;
 	color    :#FFFFFF;
 	letter-spacing : -4px;
 	font-weight:800;
@@ -78,3 +78,4 @@ body {
 	top:190px;
 	-webkit-text-stroke: 3px #000;
 }
+
