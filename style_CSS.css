@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* 全体のフォントとか */
 body {
-    font-family:  'Noto Sans CJK JP';
+	font-family: "Noto Sans JP", sans-serif;
 	color    :#FFFFFF;
 	letter-spacing : -4px;
 	font-weight:800;
