@@ -1,5 +1,5 @@
 let Regiao = "ap";					//eu na ap(jp) kr
-let Username = "nanasia";	//名前
+let Username = "nanasia twitch";	//名前
 let Tagline = "774A";				//タグライン
 let Apikey = "HDEV-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"	//API_KEY
 //上4行を自分のアカウントに合わせて変更する
@@ -47,8 +47,6 @@ function InfoGet(url) {
 }
 
 function main() {
-	Username2 = Username.replace( " ", "%20" );
-
 	//Get MMR History
 	let GetMMRHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v1/mmr-history/" +
@@ -61,13 +59,6 @@ function main() {
 	rankpt = jsonData.data[0].ranking_in_tier;
 	lastchangerankpt = jsonData.data[0].mmr_change_to_last_game;
 	lastmutchdate = jsonData.data[0].date;
-	
-	//画像の処理のための変数を用意
-	rankcurrent_nospace = rankcurrent.replace(/\s+/g, "");
-	rankcurrent_nonum = rankcurrent_nospace.slice( 0, -1);
-	
-	//メーター増減の処理
-	let rpmeterW = document.getElementById('meter1');
 	
 	//rankptをメーター用の変数にコピー
 	rankpt_meter = rankpt;
@@ -119,6 +110,11 @@ function main() {
 			//イモ2未満かつランク昇格時かつ昇格後のポイントが10未満な場合に10になるため、Totalに追加するptの調整
 			if(currenttier < 25 && lastcurrenttier < currenttier && lastrankpt + lastchangerankpt < 110){
 				changerankpt = changerankpt + 110 - lastrankpt - lastchangerankpt;
+			}
+			
+			//シールドついている場合の対応。前と同じランク、RPだったら増減しないように
+			if(lastcurrenttier == currenttier && lastrankpt == rankpt){
+				changerankpt = 0;
 			}
 			
 			//totalptを増減
@@ -177,6 +173,13 @@ function main() {
 	//表示の変更をしていいなら変更
 	if (priflag === true){
 		
+		//画像の処理のための変数を用意
+		rankcurrent_nospace = rankcurrent.replace(/\s+/g, "");
+		rankcurrent_nonum = rankcurrent_nospace.slice( 0, -1);
+		
+		//メーター増減の処理
+		let rpmeterW = document.getElementById('meter1');
+		
 		//メーター反映
 		rpmeterW.width = resize;
 		//ランクマーク
@@ -196,12 +199,12 @@ function main() {
 	}
 }
 
-//20秒に1回mainを起動（API配布先に迷惑がかかるので20秒未満に変更しないでください）
-//1000で1秒、20000で20秒です
-setInterval(main, 20000);
+//一定周期でmainを起動（API配布先に迷惑がかかるので変更しないでください）
+setInterval(main, 30000);
 
 //最初用
 window.onload = function() {
+	Username2 = encodeURIComponent(Username);
 	main();
 	lastrankpt = rankpt;
 	
