@@ -47,8 +47,6 @@ function InfoGet(url) {
 }
 
 function main() {
-	Username2 = encodeURIComponent(Username);
-
 	//Get MMR History
 	let GetMMRHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v1/mmr-history/" +
@@ -115,7 +113,7 @@ function main() {
 			}
 			
 			//シールドついている場合の対応。前と同じランク、RPだったら増減しないように
-			if(lastcurrenttier == currenttier && lastrankpt == rankpt)
+			if(lastcurrenttier == currenttier && lastrankpt == rankpt){
 				changerankpt = 0;
 			}
 			
@@ -206,6 +204,7 @@ setInterval(main, 30000);
 
 //最初用
 window.onload = function() {
+	Username2 = encodeURIComponent(Username);
 	main();
 	lastrankpt = rankpt;
 	
@@ -213,7 +212,7 @@ window.onload = function() {
 	//Get Match History
 	let GetMatchHistory = InfoGet(
 		"https://api.henrikdev.xyz/valorant/v3/matches/" +
-		Regiao + "/" + Username + "/" +
+		Regiao + "/" + Username2 + "/" +
 		Tagline + "?filter=competitive&size=1" + "&api_key=" + Apikey
 	);
 	let jsonDataWL = JSON.parse(GetMatchHistory);
@@ -222,5 +221,3 @@ window.onload = function() {
 	lastmutchdateGMH2 = lastmutchdateGMH;
 	lastcurrenttier = currenttier;
 }
-
-
